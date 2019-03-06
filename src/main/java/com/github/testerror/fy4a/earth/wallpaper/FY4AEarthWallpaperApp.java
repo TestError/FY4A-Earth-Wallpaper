@@ -15,9 +15,11 @@ import java.util.HashMap;
 
 public class FY4AEarthWallpaperApp {
 
-	public static final String outPut = "C:\\output.jpg";
+	public static final String outPut = System.getProperty("user.dir") + "\\output.jpg";
 
 	public static void main(String [] args) throws IOException, InterruptedException {
+
+
 		while(true){
 			Thumbnails.Builder fileBuilder = Thumbnails.fromURLs(Collections.singleton(new URL("http://img.nsmc.org.cn/CLOUDIMAGE/FY4A/MTCC/FY4A_DISK.JPG?random=" + System.currentTimeMillis())));
 			BufferedImage bufferedImage = new BufferedImage(
@@ -39,6 +41,7 @@ public class FY4AEarthWallpaperApp {
 			fileBuilder.scale(0.4).toFile(outPut);
 			SPI.INSTANCE.SystemParametersInfo(0x0014, 0,outPut,0);
 
+			System.out.println("当前图片路径"+outPut);
 			System.out.println("替换成功");
 
 			Thread.sleep(1200000L);
