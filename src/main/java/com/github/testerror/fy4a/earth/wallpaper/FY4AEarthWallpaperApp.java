@@ -17,13 +17,8 @@ public class FY4AEarthWallpaperApp {
 
 	public static final String outPut = System.getProperty("user.dir") + "\\output.jpg";
 
-	public static void main(String [] args) throws IOException, InterruptedException {
+	public static void main(String [] args) throws IOException {
 		run();
-		while(true){
-			System.gc();
-			Thread.sleep(1200000L);
-			run();
-		}
 	}
 
 	public static void run() throws IOException {
